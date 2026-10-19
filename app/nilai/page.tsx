@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Nilai() {
+  const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const menuItems = [
@@ -11,8 +13,7 @@ export default function Nilai() {
     { label: "Jadwal Kuliah", href: "/jadwal" },
     { label: "Nilai Per Semester", href: "/nilai" },
     { label: "Biodata", href: "/biodata" },
-    { label: "Daftar Tarif Kuliah", href: "/tarif" },
-    { label: "Bantuan", href: "#" },
+    { label: "Daftar Tarif Kuliah", href: "/tarif" }
   ];
 
   // Data baris mata kuliah sesuai dengan desain gambar
@@ -64,7 +65,15 @@ export default function Nilai() {
         </div>
 
         <div className={`p-6 flex ${isSidebarOpen ? "justify-start" : "justify-center"}`}>
-          <button className="text-[#ffb7a1] font-bold hover:text-orange-200 transition-colors" title="Logout">
+          <button
+            onClick={() => {
+              if (window.confirm("Ingin logout?")) {
+                router.push("/login");
+              }
+            }}
+            className="text-[#ffb7a1] font-bold hover:text-orange-200 transition-colors"
+            title="Logout"
+          >
             {isSidebarOpen ? (
               <span className="text-xl">Logout</span>
             ) : (
