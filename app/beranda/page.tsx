@@ -13,12 +13,10 @@ export default function Beranda() {
 
   const menuItems = [
     { label: "Home", href: "/beranda" },
-    { label: "Akademik", href: "#" },
-    { label: "Kegiatan Kemahasiswaan", href: "#" },
-    { label: "Beasiswa", href: "#" },
-    { label: "KKN", href: "#" },
-    { label: "Pesan", href: "#" },
-    { label: "Survey", href: "#" },
+    { label: "Jadwal Kuliah", href: "/jadwal" },
+    { label: "Nilai Per Semester", href: "/nilai" },
+    { label: "Biodata", href: "/biodata" },
+    { label: "Daftar Tarif Kuliah", href: "/tarif" },
     { label: "Bantuan", href: "#" },
   ];
 
