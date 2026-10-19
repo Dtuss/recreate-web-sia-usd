@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Tarif() {
+  const router = useRouter();
   // Sidebar di-setting false (tertutup) agar sama dengan gambar
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -13,8 +15,7 @@ export default function Tarif() {
     { label: "Jadwal Kuliah", href: "/jadwal" },
     { label: "Nilai Per Semester", href: "/nilai" },
     { label: "Biodata", href: "/biodata" },
-    { label: "Daftar Tarif Kuliah", href: "/tarif" },
-    { label: "Bantuan", href: "#" },
+    { label: "Daftar Tarif Kuliah", href: "/tarif" }
   ];
 
   // Data Tabel Tarif Kuliah
@@ -72,7 +73,15 @@ export default function Tarif() {
 
         {/* Bagian Bawah Sidebar (TOMBOL LOGOUT YANG KEMBALI MUNCUL) */}
         <div className={`p-6 flex ${isSidebarOpen ? "justify-start" : "justify-center"}`}>
-          <button className="text-[#ffb7a1] font-bold hover:text-orange-200 transition-colors" title="Logout">
+          <button
+            onClick={() => {
+              if (window.confirm("Ingin logout?")) {
+                router.push("/login");
+              }
+            }}
+            className="text-[#ffb7a1] font-bold hover:text-orange-200 transition-colors"
+            title="Logout"
+          >
             {isSidebarOpen ? (
               <span className="text-xl">Logout</span>
             ) : (

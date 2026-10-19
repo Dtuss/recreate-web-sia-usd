@@ -14,8 +14,7 @@ export default function Biodata() {
     { label: "Jadwal Kuliah", href: "/jadwal" },
     { label: "Nilai Per Semester", href: "/nilai" },
     { label: "Biodata", href: "/biodata" },
-    { label: "Daftar Tarif Kuliah", href: "/tarif" },
-    { label: "Bantuan", href: "#" },
+    { label: "Daftar Tarif Kuliah", href: "/tarif" }
   ];
 
   return (
